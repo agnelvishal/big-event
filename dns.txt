@@ -1,0 +1,56 @@
+;;
+;; Domain:     bloomingreenfestival.com.
+;; Exported:   2026-04-03 09:02:32
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+bloomingreenfestival.com	3600	IN	SOA	max.ns.cloudflare.com. dns.cloudflare.com. 2052687355 10000 2400 604800 3600
+
+;; NS Records
+bloomingreenfestival.com.	86400	IN	NS	max.ns.cloudflare.com.
+bloomingreenfestival.com.	86400	IN	NS	melissa.ns.cloudflare.com.
+
+;; A Records
+big7.bloomingreenfestival.com.	1	IN	A	147.79.65.56 ; cf_tags=cf-proxied:true
+bloomingreenfestival.com.	1	IN	A	147.79.65.56 ; cf_tags=cf-proxied:true
+www.big7.bloomingreenfestival.com.	1	IN	A	147.79.65.56 ; cf_tags=cf-proxied:true
+
+;; CNAME Records
+brevo1._domainkey.bloomingreenfestival.com.	1	IN	CNAME	b1.bloomingreenfestival-com.dkim.brevo.com. ; cf_tags=cf-proxied:true
+brevo2._domainkey.bloomingreenfestival.com.	1	IN	CNAME	b2.bloomingreenfestival-com.dkim.brevo.com. ; cf_tags=cf-proxied:true
+_domainconnect.bloomingreenfestival.com.	1	IN	CNAME	_domainconnect.gd.domaincontrol.com. ; cf_tags=cf-proxied:true
+email.bloomingreenfestival.com.	1	IN	CNAME	email.secureserver.net. ; cf_tags=cf-proxied:true
+www.bloomingreenfestival.com.	1	IN	CNAME	bloomingreenfestival.com. ; cf_tags=cf-proxied:true
+
+;; MX Records
+bloomingreenfestival.com.	1	IN	MX	50 mx3.zoho.in.
+bloomingreenfestival.com.	1	IN	MX	20 mx2.zoho.in.
+bloomingreenfestival.com.	60	IN	MX	10 mx.zoho.in.
+
+;; TXT Records
+bloomingreenfestival.com.	3600	IN	TXT	"v=spf1 include:zoho.in ~all"
+bloomingreenfestival.com.	60	IN	TXT	"zoho-verification=zb58584720.zmverify.zoho.in"
+bloomingreenfestival.com.	1	IN	TXT	"google-site-verification=EDVmFFl_RWPHkPy0zSA2k6quoO1neOdCt8I7LIa4yDY"
+bloomingreenfestival.com.	3600	IN	TXT	"D2237260"
+bloomingreenfestival.com.	3600	IN	TXT	"brevo-code:71ebc8b69966a4cf3231a0c1cb913c5e"
+zmail._domainkey.bloomingreenfestival.com.	1	IN	TXT	"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDgcnBzeIKPVQpBOOxHHI+MpfqzNhZa4tqH8WRGUn8zFFWgpqOGQhO7ad6UH3BDTnlY43AfrnHrWUVDJVbYILh0hHoWKdgUV2sRFIFId9aE6enzYtdzJKTHwgYgija6neyyjm0UDNXT1OHYogjhLMTTI6I+Ir6I7CzUj+jRY/cU6QIDAQAB"
