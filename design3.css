@@ -50,15 +50,16 @@ body.design-3 {
 .design-3 .event-title {
     font-family: 'Outfit', sans-serif;
     font-size: 4.5rem;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.1;
     background: linear-gradient(to bottom, #fff, #8b5cf6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 3rem;
+    margin: 3rem 0;
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+    text-align: center;
 }
 
 .design-3 .event-title span {
@@ -66,6 +67,8 @@ body.design-3 {
     text-transform: lowercase;
     font-style: italic;
     font-weight: 400;
+    background: none;
+    -webkit-text-fill-color: #8b5cf6; /* Added specific color for the span to make it stand out like Design 2 */
 }
 
 .design-3 .cta-button {
