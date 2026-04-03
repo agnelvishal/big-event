@@ -118,3 +118,62 @@ body.design-3 {
     font-size: 0.8rem;
     letter-spacing: 0.2rem;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .design-3 .hero-section {
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .design-3 .artist-blob {
+        width: 260px;
+        height: 260px;
+        margin-bottom: 2.5rem;
+    }
+
+    .design-3 .event-title {
+        font-size: 2.8rem;
+        letter-spacing: -1px;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .design-3 .hero-section p {
+        font-size: 1.2rem !important;
+        letter-spacing: 0.1rem !important;
+    }
+
+    .design-3 .hero-section h5 {
+        letter-spacing: 0.2rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .design-3 .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .design-3 .cards-container {
+        padding: 3rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .design-3 .glass-card {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+
+    .design-3 .price-value {
+        font-size: 2.5rem;
+    }
+    
+    .design-3 .footer-text {
+        padding: 3rem 1rem;
+        font-size: 0.7rem;
+    }
+}
