@@ -103,8 +103,15 @@ h4 {
 }
 
 .design-3 .cta-button {
-    background-color: #ec4899;
+    /* Dynamic multi-color gradient background */
+    background: linear-gradient(45deg,
+            #ec4899 0%,
+            #8b5cf6 33%,
+            #06b6d4 66%,
+            #ec4899 100%);
+    background-size: 300% auto;
     color: #f1f5f9;
+    /* Static font color */
     padding: 1.25rem 3rem;
     border-radius: 12px;
     font-weight: 700;
@@ -112,27 +119,23 @@ h4 {
     text-transform: uppercase;
     margin-top: 2rem;
     box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
-    animation: btnTextFlow 5s ease-in-out infinite;
+    animation: btnBgFlow 12s ease-in-out infinite;
     transition: all 0.3s ease;
 }
 
-@keyframes btnTextFlow {
-    0%, 100% {
-        color: #f1f5f9;
+@keyframes btnBgFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
         box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
         transform: scale(1);
     }
-    33% {
-        color: #5cf6da; /* Cyan peak */
-        text-shadow: 0 0 10px rgba(92, 246, 218, 0.6);
-    }
-    66% {
-        color: #c084fc; /* Purple peak */
-        text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
-    }
+
     50% {
-        transform: scale(1.05);
+        background-position: 100% 50%;
         box-shadow: 0 15px 45px rgba(236, 72, 153, 0.5);
+        transform: scale(1.05);
     }
 }
 
