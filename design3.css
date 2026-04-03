@@ -103,8 +103,8 @@ h4 {
 }
 
 .design-3 .cta-button {
-    background: #ec4899;
-    color: #f1f5f9; /* Initial off-white color */
+    background-color: #ec4899;
+    color: #f1f5f9;
     padding: 1.25rem 3rem;
     border-radius: 12px;
     font-weight: 700;
@@ -112,23 +112,27 @@ h4 {
     text-transform: uppercase;
     margin-top: 2rem;
     box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
-    animation: btnPulse 3s ease-in-out infinite;
+    animation: btnTextFlow 5s ease-in-out infinite;
     transition: all 0.3s ease;
 }
 
-@keyframes btnPulse {
+@keyframes btnTextFlow {
     0%, 100% {
-        background-color: #ec4899;
         color: #f1f5f9;
         box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
         transform: scale(1);
     }
+    33% {
+        color: #5cf6da; /* Cyan peak */
+        text-shadow: 0 0 10px rgba(92, 246, 218, 0.6);
+    }
+    66% {
+        color: #c084fc; /* Purple peak */
+        text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+    }
     50% {
-        background-color: #f472b6;
-        color: #ffffff; /* Brighter white at the peak */
+        transform: scale(1.05);
         box-shadow: 0 15px 45px rgba(236, 72, 153, 0.5);
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        transform: scale(1.03);
     }
 }
 
