@@ -40,32 +40,36 @@ body.design-3 {
 }
 
 .design-3 .event-title {
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 800;
-    text-align: center;
-    background: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6);
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    line-height: 0.9;
+    background: linear-gradient(to bottom, #fff, #8b5cf6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
 }
 
 .design-3 .cta-button {
-    background: #f1f5f9;
-    color: #0f172a;
+    background: #ec4899;
+    color: #fff;
     padding: 1.25rem 3rem;
     border-radius: 12px;
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
     margin-top: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
 }
 
 .design-3 .cta-button:hover {
-    background: #ec4899;
-    color: #fff;
+    background: #f1f5f9;
+    color: #0f172a;
     transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(236, 72, 153, 0.5);
 }
 
 .design-3 .cards-container {
@@ -94,9 +98,11 @@ body.design-3 {
 }
 
 .design-3 .price-value {
-    font-size: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
     font-weight: 800;
     color: #f59e0b;
+    letter-spacing: -2px;
 }
 
 .design-3 .footer-text {
