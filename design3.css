@@ -12,17 +12,24 @@ body.design-3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem 2rem;
+    padding: 1rem 2rem;
     background: radial-gradient(circle at 0% 0%, #8b5cf6 0%, transparent 40%),
         radial-gradient(circle at 100% 100%, #f59e0b 0%, transparent 40%);
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+}
+
 .design-3 .artist-blob {
-    width: 350px;
-    height: 350px;
+    max-height: 75vh;
+    width: 75vh;
     border-radius: 53% 47% 70% 30% / 30% 60% 40% 70%;
     overflow: hidden;
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
     box-shadow: 0 0 60px rgba(139, 92, 246, 0.4);
     animation: morph 8s ease-in-out infinite;
 }
@@ -51,24 +58,27 @@ body.design-3 {
     font-family: 'Outfit', sans-serif;
     font-size: 4.5rem;
     letter-spacing: -3px;
-    text-transform: uppercase;
+    text-transform: none;
+    /* Removed uppercase to allow mixed case */
     line-height: 1.1;
-    background: linear-gradient(to bottom, #fff, #8b5cf6);
+    background: linear-gradient(to bottom, #fff, #5cf6da);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin: 3rem 0;
+    margin: 3rem 0 0 0;
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
     text-align: center;
 }
 
 .design-3 .event-title span {
     font-family: 'Playfair Display', serif;
-    text-transform: lowercase;
+    text-transform: none;
+    /* Changed from lowercase to none */
     font-style: italic;
     font-weight: 400;
     background: none;
-    -webkit-text-fill-color: #8b5cf6; /* Added specific color for the span to make it stand out like Design 2 */
+    -webkit-text-fill-color: #228B22;
+    /* Forest Green */
 }
 
 .design-3 .cta-button {
@@ -134,14 +144,14 @@ body.design-3 {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .design-3 .hero-section {
-        padding: 3rem 1rem;
+        padding: 1rem 1rem;
         min-height: auto;
     }
 
     .design-3 .artist-blob {
-        width: 260px;
-        height: 260px;
-        margin-bottom: 2.5rem;
+        width: 90vw;
+        height: 70vh;
+        margin-bottom: 0;
     }
 
     .design-3 .event-title {
@@ -183,7 +193,7 @@ body.design-3 {
     .design-3 .price-value {
         font-size: 2.5rem;
     }
-    
+
     .design-3 .footer-text {
         padding: 3rem 1rem;
         font-size: 0.7rem;
