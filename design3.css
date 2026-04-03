@@ -175,14 +175,14 @@ h4 {
     }
 
     .design-3 .event-title {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
         letter-spacing: -1px;
         line-height: 1.1;
         text-align: center;
     }
 
     .design-3 .hero-section p {
-        font-size: 1.2rem !important;
+        font-size: 1.4rem !important;
         letter-spacing: 0.1rem !important;
     }
 
@@ -222,7 +222,6 @@ h4 {
 /* Context Info Animation */
 .context-info {
     font-size: 1.5rem;
-    font-weight: 700;
     letter-spacing: 0.2rem;
     text-align: center;
     color: #f1f5f9;
@@ -231,12 +230,16 @@ h4 {
 }
 
 @keyframes colorPulse {
-    0%, 100% { 
-        color: #f1f5f9; 
-        text-shadow: 0 0 0px transparent; 
+
+    0%,
+    100% {
+        color: #f1f5f9;
+        text-shadow: 0 0 0px transparent;
     }
-    50% { 
-        color: #8b5cf6; /* Soft purple match */
-        text-shadow: 0 0 15px rgba(139, 92, 246, 0.4); 
+
+    50% {
+        color: #8b5cf6;
+        /* Soft purple match */
+        text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
     }
 }
