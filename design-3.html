@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbolico Live | One Night to Bloom</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="design3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="design-3">
+    <header class="hero-section fade-in">
+        <div class="artist-blob">
+            <img src="Symbolico_a.avif" alt="Symbolico Artist">
+        </div>
+        <h5 style="text-transform: uppercase; letter-spacing: 0.5rem; color: #f59e0b; margin-bottom: 1rem;">One Night to Bloom</h5>
+        <h1 class="event-title">SYMBOLICO</h1>
+        <p style="font-size: 1.5rem; font-weight: 700; letter-spacing: 0.2rem; color: #f1f5f9; text-align: center;">Live at GYLT, Bangalore</p>
+        <p style="margin-top: 0.5rem; font-size: 1.1rem; color: #94a3b8;">April 18 | 4 PM – 1 AM</p>
+        <a href="#" id="pay-now-3" class="btn cta-button">Get Your Tickets</a>
+    </header>
+
+    <main class="content-container">
+        <section class="cards-container">
+            <div class="glass-card fade-in">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ec4899;">A Journey Through Sound</h2>
+                <p>One Night to Bloom is the Bloom spirit traveling — a one-night journey across cities in India.</p>
+                <p style="margin-top: 1rem;">Experience a curated flow arts ensemble and supporting acts shaping the night into a collective energy.</p>
+            </div>
+            <div class="glass-card fade-in" style="animation-delay: 0.2s;">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #8b5cf6;">Tickets</h2>
+                <div class="price-box">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1rem; color: #8b5cf6;">General Admission</p>
+                    <div class="price-value">₹1200</div>
+                </div>
+                <div class="price-box" style="margin-top: 1rem; border-color: #f59e0b;">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1rem; color: #f59e0b;">Space Lounge</p>
+                    <div class="price-value">₹1800</div>
+                </div>
+                <p style="font-size: 0.8rem; color: #64748b; margin-top: 1rem; text-align: center;">Cover charge applicable at the gate.</p>
+            </div>
+        </section>
+
+        <section class="glass-card fade-in" style="margin: 0 auto 6rem; max-width: 800px; width: 100%;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: #f1f5f9; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">⚖️ Terms & Conditions</h2>
+            <ul style="list-style: none; display: grid; gap: 1rem;">
+                <li style="display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%;"></div> No refunds on purchased tickets</li>
+                <li style="display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%;"></div> Entry restricted to 21+ only</li>
+                <li style="display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: #ec4899; border-radius: 50%;"></div> No illegal substances or prohibited items</li>
+                <li style="display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: #06b6d4; border-radius: 50%;"></div> Lineup, schedule, and venue subject to change</li>
+                <li style="display: flex; align-items: center; gap: 1rem;"><div style="width: 8px; height: 8px; background: #f1f5f9; border-radius: 50%;"></div> Management reserves the right to admission</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        BLOOM SPIRIT x FUTURE SOUND EXPERIENCE x ALT SPACES
+    </footer>
+
+    <script>
+        // Reveal elements on scroll
+        const obs = new IntersectionObserver((ents) => {
+            ents.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = 1;
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

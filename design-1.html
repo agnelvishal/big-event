@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbolico Live | One Night to Bloom</title>
+    <meta name="description" content="Experience Symbolico live at One Night to Bloom in Bangalore. A journey through sound, visuals, and collective energy.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body class="design-1">
+    <header class="hero">
+        <div class="hero-bg">
+            <img src="Symbolico_a.avif" alt="Symbolico performing live">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h2 class="event-subtitle">One Night to Bloom</h2>
+            <h1 class="event-title">Symbolico <br> Live</h1>
+            <p style="margin-bottom: 2rem; color: #a78bfa; font-weight: 400; font-size: 1.1rem; letter-spacing: 2px;">Apr 18 | 4 PM – 1 AM | GYLT, Bangalore</p>
+            <a href="#" id="pay-now-1" class="btn cta-button">Tickets Now Live</a>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card fade-in">
+                    <h3>The Journey</h3>
+                    <p>One Night to Bloom is the Bloom spirit traveling — a one-night journey across cities in India.</p>
+                    <p style="margin-top: 1rem;">This edition is special, in collaboration with Future Sound Experience and Alt Spaces.</p>
+                </div>
+                <div class="info-card fade-in" style="animation-delay: 0.2s;">
+                    <h3>The Experience</h3>
+                    <p>A journey through sound, visuals, and collective energy — designed to be felt, not just heard.</p>
+                    <p style="margin-top: 1rem;">With a curated flow arts ensemble and supporting acts shaping the night.</p>
+                </div>
+                <div class="info-card fade-in" style="animation-delay: 0.4s;">
+                    <h3>Tickets</h3>
+                    <div>
+                        <span class="price-label">GA</span>
+                        <div class="price-tag">₹1200</div>
+                    </div>
+                    <div>
+                        <span class="price-label">Space Lounge</span>
+                        <div class="price-tag">₹1800</div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #64748b;">Cover charge applicable at the gate</p>
+                </div>
+            </div>
+
+            <div class="terms-box fade-in">
+                <h3>⚖️ Terms & Conditions</h3>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li>• No refunds on purchased tickets</li>
+                    <li>• Entry restricted to 21+ only</li>
+                    <li>• No illegal substances or prohibited items allowed</li>
+                    <li>• Lineup, schedule, and venue details are subject to change</li>
+                    <li>• Management reserves the right to admission</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 4rem; color: #334155; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">
+        Bloom Spirit x Future Sound Experience x Alt Spaces
+    </footer>
+
+    <script>
+        // Simple scroll reveal
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.fade-in');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

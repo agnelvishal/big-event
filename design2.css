@@ -1,0 +1,116 @@
+body.design-2 {
+    background-color: #fafaf9;
+    color: #171717;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.design-2 .hero {
+    padding: 10rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.design-2 .hero-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 4rem;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.1);
+}
+
+.design-2 .event-title {
+    font-size: 5.5rem;
+    font-weight: 300;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.design-2 .event-title span {
+    font-family: 'Playfair Display', serif; /* Falling back to serif if playfair isn't loaded */
+    font-style: italic;
+    color: #4f46e5;
+}
+
+.design-2 .subtitle {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.design-2 .cta-button {
+    background: #171717;
+    color: #fff;
+    padding: 1.5rem 4rem;
+    border-radius: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 3rem;
+}
+
+.design-2 .cta-button:hover {
+    background: #4f46e5;
+    transform: translateY(-5px);
+}
+
+.design-2 .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 8rem;
+    padding: 10rem 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.design-2 .section-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    color: #9ca3af;
+}
+
+.design-2 .section-body {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.design-2 .price-card {
+    background: #fff;
+    padding: 3rem;
+    border: 1px solid #e5e7eb;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.design-2 .price-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #171717;
+}
+
+.design-2 .price-name {
+    font-size: 1.25rem;
+    color: #6b7280;
+}
+
+.design-2 .terms-list {
+    list-style: none;
+    margin-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+}
+
+.design-2 .terms-list li {
+    font-size: 0.9rem;
+    color: #6b7280;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
