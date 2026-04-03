@@ -1,7 +1,7 @@
 body.design-3 {
     background-color: #0f172a;
     color: #f1f5f9;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
 }
 
@@ -48,6 +48,7 @@ body.design-3 {
 }
 
 .design-3 .event-title {
+    font-family: 'Outfit', sans-serif;
     font-size: 4.5rem;
     letter-spacing: -2px;
     text-transform: uppercase;
@@ -58,6 +59,13 @@ body.design-3 {
     color: transparent;
     margin-bottom: 3rem;
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+}
+
+.design-3 .event-title span {
+    font-family: 'Playfair Display', serif;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .design-3 .cta-button {
@@ -105,8 +113,9 @@ body.design-3 {
 }
 
 .design-3 .price-value {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 3.5rem;
+    font-weight: 700;
     color: #f59e0b;
     letter-spacing: -2px;
 }
