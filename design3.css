@@ -59,15 +59,36 @@ h4 {
     font-size: 4.5rem;
     letter-spacing: -3px;
     text-transform: none;
-    /* Removed uppercase to allow mixed case */
     line-height: 1.1;
-    background: linear-gradient(to bottom, #fff, #5cf6da);
+    /* Expanded gradient for animation */
+    background: linear-gradient(45deg,
+            #ffffff 0%,
+            #8b5cf6 25%,
+            #5cf6da 50%,
+            #8b5cf6 75%,
+            #ffffff 100%);
+    background-size: 300% auto;
+    animation: flowGradient 4s ease infinite;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     margin: 3rem 0 0 0;
-    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.4));
     text-align: center;
+}
+
+@keyframes flowGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .design-3 .event-title span {
@@ -128,7 +149,6 @@ h4 {
 .design-3 .price-value {
     font-family: 'Outfit', sans-serif;
     font-size: 3.5rem;
-    font-weight: 700;
     color: #f59e0b;
     letter-spacing: -2px;
 }
