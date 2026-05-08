@@ -107,9 +107,8 @@
         <div class="thank-you-card">
             <span class="success-icon">🌸</span>
             <h1 class="event-title" style="margin-top: 0; font-size: 3.5rem;">See You at the <span>Bloom</span>!</h1>
-            <p class="context-info" style="margin-top: 2rem; font-size: 1.2rem;">Your tickets have been confirmed.</p>
-            <p style="margin-top: 1rem; color: #94a3b8;">Check your email for details. We can't wait to see you on April
-                18th!</p>
+            <p class="context-info" style="margin-top: 2rem; font-size: 1.2rem;" id="thank-you-msg">Your tickets have been confirmed.</p>
+            <p style="margin-top: 1rem; color: #94a3b8;">Check your email for details. We can't wait to see you on May 23rd!</p>
 
             <a href="/" class="btn cta-button"
                 style="margin-top: 3rem; text-decoration: none; display: inline-block;">Back to Home</a>
@@ -121,11 +120,33 @@
     </footer>
 
     <script>
-        // Reveal elements
+        // Reveal elements and parse URL params
         document.addEventListener('DOMContentLoaded', () => {
             const el = document.querySelector('.fade-in');
             el.style.opacity = 1;
             el.style.transform = 'translateY(0)';
+
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get('firstname');
+            const txnid = urlParams.get('txnid');
+
+            if (firstName) {
+                const msgEl = document.getElementById('thank-you-msg');
+                if (msgEl) msgEl.innerHTML = `Hi <strong>${firstName}</strong>, your tickets have been confirmed.`;
+            }
+
+            if (txnid) {
+                const card = document.querySelector('.thank-you-card');
+                const details = document.createElement('div');
+                details.style.marginTop = '1.5rem';
+                details.style.background = 'rgba(255,255,255,0.05)';
+                details.style.padding = '1rem';
+                details.style.borderRadius = '15px';
+                details.style.border = '1px solid rgba(255,255,255,0.1)';
+                details.innerHTML = `<p style="color: #94a3b8; font-size: 0.9rem;">Transaction ID: <span style="color: #f1f5f9;">${txnid}</span></p>`;
+                card.insertBefore(details, card.querySelector('.cta-button'));
+            }
         });
     </script>
 </body>
