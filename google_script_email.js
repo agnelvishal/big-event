@@ -36,18 +36,24 @@ function doPost(e) {
             params = parseFormEncoded(rawData);
         }
 
-        // 2. Extract fields (Case-insensitive support)
-        var txnid = params.txnid || params.TXNID || "N/A";
-        var firstname = params.firstname || params.FIRSTNAME || "Guest";
-        var email = params.email || params.EMAIL;
-        var amount = params.amount || params.AMOUNT || "0";
-        var status = (params.status || params.STATUS || "").toLowerCase();
-        var productinfo = params.productinfo || params.PRODUCTINFO || "Symbolico Live Ticket";
+        // Support for nested 'data' object (Found in TRANSACTION_UPDATE events)
+        var data = params.data || params;
+
+        // 2. Extract fields (Case-insensitive and nested support)
+        var txnid = data.txnid || data.txn_id || data.TXNID || "N/A";
+        var firstname = data.firstname || data.name || data.FIRSTNAME || "Guest";
+        var email = data.email || data.EMAIL;
+        var amount = data.amount || data.AMOUNT || "0";
+        var status = (data.status || data.STATUS || "").toLowerCase();
+        var productinfo = data.productinfo || data.PRODUCTINFO || "Symbolico Live Ticket";
 
         // Debugging: Send raw data to your email if DEBUG_EMAIL is set
         if (DEBUG_EMAIL) {
             MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Webhook Debug",
-                "Status: " + status + "\nEmail: " + email + "\nRaw Data:\n" + JSON.stringify(e, null, 2));
+                "Extracted Status: " + status + 
+                "\nExtracted Email: " + email + 
+                "\nExtracted Name: " + firstname +
+                "\nRaw Data:\n" + JSON.stringify(e, null, 2));
         }
 
         // 3. Only send email if payment is successful
@@ -55,7 +61,7 @@ function doPost(e) {
             if (email) {
                 sendConfirmationEmail(email, firstname, txnid, amount, productinfo);
             } else if (DEBUG_EMAIL) {
-                MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Alert: Success but no Email", "Payload: " + JSON.stringify(params));
+                MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Alert: Success but no Email Found", "Parsed Data: " + JSON.stringify(data));
             }
         }
 
