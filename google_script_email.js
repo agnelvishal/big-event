@@ -140,3 +140,31 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
         htmlBody: htmlBody
     });
 }
+
+/**
+ * Run this function ONCE to send emails to people who booked before the script was live.
+ * In the Google Apps Script editor, select 'sendEmailsToPastBookings' in the toolbar and click 'Run'.
+ */
+function sendEmailsToPastBookings() {
+  var pastBookings = [
+    { txnid: "COF39CT9", name: "Agnel Vishal", email: "agnelvishal@gmail.com", amount: "1", product: "One Night to Bloom" },
+    { txnid: "NLPKZ6W4", name: "Albert Rohit", email: "albertrohit23@gmail.com", amount: "1", product: "One Night to Bloom" },
+    { txnid: "MV13U2OE", name: "Sachin Kolathai", email: "sachinkolathai@gmail.com", amount: "1200", product: "General Admission" },
+    { txnid: "3FLS1EJ6", name: "Swaraj p r", email: "swaraj.parari@gmail.com", amount: "1200", product: "General Admission" },
+    { txnid: "LKQT0S6U", name: "Sandhya", email: "thirteenth.september@gmail.com", amount: "2400", product: "General Admission" },
+    { txnid: "H61ZA96I", name: "Meera N", email: "meeranandakumar3009@yahoo.com", amount: "3600", product: "Space Lounge" },
+    { txnid: "YS1UK3JY", name: "Benjamin Swami", email: "radicalben@gmail.com", amount: "1800", product: "Space Lounge" },
+    { txnid: "M9NW7QN7", name: "Aswathy", email: "aswathyr001@gmail.com", amount: "1200", product: "General Admission" }
+  ];
+
+  pastBookings.forEach(function(booking) {
+    try {
+      sendConfirmationEmail(booking.email, booking.name, booking.txnid, booking.amount, booking.product);
+      Logger.log("Sent to: " + booking.email);
+    } catch (e) {
+      Logger.log("Failed for: " + booking.email + " Error: " + e.toString());
+    }
+  });
+  
+  return "Finished sending " + pastBookings.length + " emails.";
+}
