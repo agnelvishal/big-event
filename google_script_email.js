@@ -13,7 +13,7 @@
  * in the Deployment settings for changes to take effect.
  */
 
-var DEBUG_EMAIL = "agnelvishal@zoho.com"; // Add your email here to receive raw logs for every attempt
+var DEBUG_EMAIL = ""; // Add your email here to receive raw logs for every attempt
 
 function doPost(e) {
     try {
@@ -50,8 +50,8 @@ function doPost(e) {
         // Debugging: Send raw data to your email if DEBUG_EMAIL is set
         if (DEBUG_EMAIL) {
             MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Webhook Debug",
-                "Extracted Status: " + status + 
-                "\nExtracted Email: " + email + 
+                "Extracted Status: " + status +
+                "\nExtracted Email: " + email +
                 "\nExtracted Name: " + firstname +
                 "\nRaw Data:\n" + JSON.stringify(e, null, 2));
         }
@@ -95,16 +95,27 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
 
     var subject = "🌸 Your Tickets for Symbolico Live are Confirmed!";
 
+    // Generate QR Code URL (using goqr.me API for reliability)
+    var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(customerEmail);
+
     var htmlBody = `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
       <div style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); padding: 40px 20px; text-align: center; color: white;">
         <h1 style="margin: 0; font-size: 28px;">See You at the Bloom!</h1>
         <p style="margin-top: 10px; opacity: 0.9;">Your booking is confirmed.</p>
       </div>
+      
       <div style="padding: 30px; color: #1e293b; line-height: 1.6;">
         <p>Hi <strong>${name}</strong>,</p>
         <p>Thank you for booking your tickets for <strong>Symbolico Live | One Night to Bloom</strong>. We are thrilled to have you join us for this journey of sound and flow arts.</p>
         
+        <!-- QR Code Section -->
+        <div style="text-align: center; margin: 30px 0; padding: 20px; background: #fdf2f8; border: 2px dashed #f472b6; border-radius: 15px;">
+          <h3 style="margin-top: 0; color: #db2777; font-size: 16px;">Your Digital Entry Pass</h3>
+          <img src="${qrCodeUrl}" alt="QR Code" style="width: 150px; height: 150px; border: 5px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+          <p style="margin-top: 10px; font-size: 12px; color: #9d174d;">Scan at the entrance</p>
+        </div>
+
         <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #edf2f7;">
           <h3 style="margin-top: 0; color: #64748b; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Booking Details</h3>
           <p style="margin: 5px 0;"><strong>Transaction ID:</strong> ${txnid}</p>
