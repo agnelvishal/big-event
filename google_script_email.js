@@ -13,83 +13,83 @@
  * in the Deployment settings for changes to take effect.
  */
 
-var DEBUG_EMAIL = ""; // Add your email here to receive raw logs for every attempt
+var DEBUG_EMAIL = "agnelvishal@zoho.com"; // Add your email here to receive raw logs for every attempt
 
 function doPost(e) {
-  try {
-    // 1. Parse the incoming data
-    var rawData = e.postData ? e.postData.contents : "";
-    var params = {};
-
-    // Try parsing as JSON first
     try {
-      if (rawData) {
-        params = JSON.parse(rawData);
-      }
-    } catch (err) {
-      // Fallback to form parameters
-      params = e.parameter || {};
+        // 1. Parse the incoming data
+        var rawData = e.postData ? e.postData.contents : "";
+        var params = {};
+
+        // Try parsing as JSON first
+        try {
+            if (rawData) {
+                params = JSON.parse(rawData);
+            }
+        } catch (err) {
+            // Fallback to form parameters
+            params = e.parameter || {};
+        }
+
+        // If params is still empty, try parsing rawData as form-urlencoded manually
+        if (Object.keys(params).length === 0 && rawData) {
+            params = parseFormEncoded(rawData);
+        }
+
+        // 2. Extract fields (Case-insensitive support)
+        var txnid = params.txnid || params.TXNID || "N/A";
+        var firstname = params.firstname || params.FIRSTNAME || "Guest";
+        var email = params.email || params.EMAIL;
+        var amount = params.amount || params.AMOUNT || "0";
+        var status = (params.status || params.STATUS || "").toLowerCase();
+        var productinfo = params.productinfo || params.PRODUCTINFO || "Symbolico Live Ticket";
+
+        // Debugging: Send raw data to your email if DEBUG_EMAIL is set
+        if (DEBUG_EMAIL) {
+            MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Webhook Debug",
+                "Status: " + status + "\nEmail: " + email + "\nRaw Data:\n" + JSON.stringify(e, null, 2));
+        }
+
+        // 3. Only send email if payment is successful
+        if (status === "success" || status === "successful") {
+            if (email) {
+                sendConfirmationEmail(email, firstname, txnid, amount, productinfo);
+            } else if (DEBUG_EMAIL) {
+                MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Alert: Success but no Email", "Payload: " + JSON.stringify(params));
+            }
+        }
+
+        // 4. Return success to Easebuzz
+        return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
+
+    } catch (error) {
+        if (DEBUG_EMAIL) {
+            MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Script Error", error.toString() + "\n\nData: " + JSON.stringify(e));
+        }
+        return ContentService.createTextOutput("Error: " + error.toString()).setMimeType(ContentService.MimeType.TEXT);
     }
-
-    // If params is still empty, try parsing rawData as form-urlencoded manually
-    if (Object.keys(params).length === 0 && rawData) {
-      params = parseFormEncoded(rawData);
-    }
-
-    // 2. Extract fields (Case-insensitive support)
-    var txnid = params.txnid || params.TXNID || "N/A";
-    var firstname = params.firstname || params.FIRSTNAME || "Guest";
-    var email = params.email || params.EMAIL;
-    var amount = params.amount || params.AMOUNT || "0";
-    var status = (params.status || params.STATUS || "").toLowerCase();
-    var productinfo = params.productinfo || params.PRODUCTINFO || "Symbolico Live Ticket";
-
-    // Debugging: Send raw data to your email if DEBUG_EMAIL is set
-    if (DEBUG_EMAIL) {
-      MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Webhook Debug", 
-        "Status: " + status + "\nEmail: " + email + "\nRaw Data:\n" + JSON.stringify(e, null, 2));
-    }
-
-    // 3. Only send email if payment is successful
-    if (status === "success" || status === "successful") {
-      if (email) {
-        sendConfirmationEmail(email, firstname, txnid, amount, productinfo);
-      } else if (DEBUG_EMAIL) {
-        MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Alert: Success but no Email", "Payload: " + JSON.stringify(params));
-      }
-    }
-
-    // 4. Return success to Easebuzz
-    return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
-
-  } catch (error) {
-    if (DEBUG_EMAIL) {
-      MailApp.sendEmail(DEBUG_EMAIL, "Easebuzz Script Error", error.toString() + "\n\nData: " + JSON.stringify(e));
-    }
-    return ContentService.createTextOutput("Error: " + error.toString()).setMimeType(ContentService.MimeType.TEXT);
-  }
 }
 
 /**
  * Parses application/x-www-form-urlencoded strings
  */
 function parseFormEncoded(str) {
-  var obj = {};
-  str.split("&").forEach(function(part) {
-    var item = part.split("=");
-    var key = decodeURIComponent(item[0]);
-    var val = decodeURIComponent(item[1] || "");
-    obj[key] = val;
-  });
-  return obj;
+    var obj = {};
+    str.split("&").forEach(function (part) {
+        var item = part.split("=");
+        var key = decodeURIComponent(item[0]);
+        var val = decodeURIComponent(item[1] || "");
+        obj[key] = val;
+    });
+    return obj;
 }
 
 function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) {
-  if (!customerEmail) return;
+    if (!customerEmail) return;
 
-  var subject = "🌸 Your Tickets for Symbolico Live are Confirmed!";
+    var subject = "🌸 Your Tickets for Symbolico Live are Confirmed!";
 
-  var htmlBody = `
+    var htmlBody = `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
       <div style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); padding: 40px 20px; text-align: center; color: white;">
         <h1 style="margin: 0; font-size: 28px;">See You at the Bloom!</h1>
@@ -117,9 +117,9 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
     </div>
   `;
 
-  MailApp.sendEmail({
-    to: customerEmail,
-    subject: subject,
-    htmlBody: htmlBody
-  });
+    MailApp.sendEmail({
+        to: customerEmail,
+        subject: subject,
+        htmlBody: htmlBody
+    });
 }
