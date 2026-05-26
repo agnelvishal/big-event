@@ -45,7 +45,7 @@ function doPost(e) {
         var email = data.email || data.EMAIL;
         var amount = data.amount || data.AMOUNT || "0";
         var status = (data.status || data.STATUS || "").toLowerCase();
-        var productinfo = data.productinfo || data.PRODUCTINFO || "Symbolico Live Ticket";
+        var productinfo = data.productinfo || data.PRODUCTINFO || "One Night to Bloom with Grouch Ticket";
 
         // Debugging: Send raw data to your email if DEBUG_EMAIL is set
         if (DEBUG_EMAIL) {
@@ -93,7 +93,7 @@ function parseFormEncoded(str) {
 function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) {
     if (!customerEmail) return;
 
-    var subject = "🌸 Your Tickets for Symbolico Live are Confirmed!";
+    var subject = "🌸 Your Tickets for One Night to Bloom with Grouch are Confirmed!";
 
     // Generate QR Code URL (using goqr.me API for reliability)
     var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(customerEmail);
@@ -107,7 +107,7 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
       
       <div style="padding: 30px; color: #1e293b; line-height: 1.6;">
         <p>Hi <strong>${name}</strong>,</p>
-        <p>Thank you for booking your tickets for <strong>Symbolico Live | One Night to Bloom</strong>. We are thrilled to have you join us for this journey of sound and flow arts.</p>
+        <p>Thank you for booking your tickets for <strong>One Night to Bloom with Grouch</strong>. We are thrilled to have you join us for this journey of sound and flow arts.</p>
         
         <!-- QR Code Section -->
         <div style="text-align: center; margin: 30px 0; padding: 20px; background: #fdf2f8; border: 2px dashed #f472b6; border-radius: 15px;">
@@ -120,9 +120,9 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
           <h3 style="margin-top: 0; color: #64748b; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Booking Details</h3>
           <p style="margin: 5px 0;"><strong>Transaction ID:</strong> ${txnid}</p>
           <p style="margin: 5px 0;"><strong>Amount Paid:</strong> ₹${amount}</p>
-          <p style="margin: 5px 0;"><strong>Event:</strong> Symbolico Live</p>
-          <p style="margin: 5px 0;"><strong>Date:</strong> May 23, 2026</p>
-          <p style="margin: 5px 0;"><strong>Venue:</strong> GYLT, Bangalore</p>
+          <p style="margin: 5px 0;"><strong>Event:</strong> One Night to Bloom with Grouch</p>
+          <p style="margin: 5px 0;"><strong>Date:</strong> June 12, 2026</p>
+          <p style="margin: 5px 0;"><strong>Venue:</strong> The Humming Tree, Bangalore</p>
         </div>
 
         <p>Please keep this email/Transaction ID handy at the entrance. Note that entry is restricted to 21+ only and a cover charge may be applicable at the gate.</p>
