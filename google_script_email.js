@@ -121,7 +121,7 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
           <p style="margin: 5px 0;"><strong>Transaction ID:</strong> ${txnid}</p>
           <p style="margin: 5px 0;"><strong>Amount Paid:</strong> ₹${amount}</p>
           <p style="margin: 5px 0;"><strong>Event:</strong> One Night to Bloom with Grouch</p>
-          <p style="margin: 5px 0;"><strong>Date:</strong> June 12, 2026</p>
+          <p style="margin: 5px 0;"><strong>Date:</strong> June 12, 2026 (6:00 PM – 1:00 AM)</p>
           <p style="margin: 5px 0;"><strong>Venue:</strong> The Humming Tree, Bangalore</p>
         </div>
 
