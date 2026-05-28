@@ -14,7 +14,6 @@ A lightweight, high-performance static landing page and notification backend for
 ├── design3.css                   # Active visual layout (glassmorphism, morph animations, responsive styles)
 ├── google_script_email.js        # Google Apps Script webhook listener & QR email engine
 ├── GrouchF.avif                  # Main event artist image (Active)
-├── Symbolico_a.avif              # Previous event artist image (Archived)
 └── README.md                     # This file (system documentation)
 ```
 
