@@ -1,3 +1,5 @@
+Read README.md html, css and js files.
+
 Below is plan executed.
 
 # Email Notification Integration Plan

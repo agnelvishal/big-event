@@ -93,10 +93,21 @@ function parseFormEncoded(str) {
 function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) {
     if (!customerEmail) return;
 
-    var subject = "🌸 Your Tickets for One Night to Bloom with Grouch are Confirmed!";
+    var isTable = (productinfo || "").toLowerCase().indexOf("table") !== -1;
+    var subject = isTable
+      ? "🌸 Your Table Booking for One Night to Bloom with Grouch is Confirmed!"
+      : "🌸 Your Tickets for One Night to Bloom with Grouch are Confirmed!";
 
     // Generate QR Code URL (using goqr.me API for reliability)
     var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(customerEmail);
+
+    var welcomeText = isTable
+      ? "Thank you for booking a table (<strong>" + productinfo + "</strong>) for <strong>One Night to Bloom with Grouch</strong>. We are thrilled to host you and your guests for a premium experience."
+      : "Thank you for booking your tickets for <strong>One Night to Bloom with Grouch</strong>. We are thrilled to have you join us for this journey of sound and flow arts.";
+
+    var noteText = isTable
+      ? "Please keep this email/Transaction ID handy at the entrance. Note that entry is restricted to 21+ only and the cover charge (fully redeemable on F&B) will be applicable at the gate."
+      : "Please keep this email/Transaction ID handy at the entrance. Note that entry is restricted to 21+ only and a cover charge may be applicable at the gate.";
 
     var htmlBody = `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
@@ -107,7 +118,7 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
       
       <div style="padding: 30px; color: #1e293b; line-height: 1.6;">
         <p>Hi <strong>${name}</strong>,</p>
-        <p>Thank you for booking your tickets for <strong>One Night to Bloom with Grouch</strong>. We are thrilled to have you join us for this journey of sound and flow arts.</p>
+        <p>${welcomeText}</p>
         
         <!-- QR Code Section -->
         <div style="text-align: center; margin: 30px 0; padding: 20px; background: #fdf2f8; border: 2px dashed #f472b6; border-radius: 15px;">
@@ -120,12 +131,13 @@ function sendConfirmationEmail(customerEmail, name, txnid, amount, productinfo) 
           <h3 style="margin-top: 0; color: #64748b; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Booking Details</h3>
           <p style="margin: 5px 0;"><strong>Transaction ID:</strong> ${txnid}</p>
           <p style="margin: 5px 0;"><strong>Amount Paid:</strong> ₹${amount}</p>
+          <p style="margin: 5px 0;"><strong>Product:</strong> ${productinfo || "One Night to Bloom Ticket"}</p>
           <p style="margin: 5px 0;"><strong>Event:</strong> One Night to Bloom with Grouch</p>
           <p style="margin: 5px 0;"><strong>Date:</strong> June 12, 2026 (6:00 PM – 1:00 AM)</p>
           <p style="margin: 5px 0;"><strong>Venue:</strong> The Humming Tree, Bangalore</p>
         </div>
 
-        <p>Please keep this email/Transaction ID handy at the entrance. Note that entry is restricted to 21+ only and a cover charge may be applicable at the gate.</p>
+        <p>${noteText}</p>
         
         <div style="text-align: center; margin-top: 30px;">
           <p style="font-size: 14px; color: #94a3b8;">Bloomingreen Festival x Future Sound Experience</p>
