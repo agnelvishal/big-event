@@ -56,8 +56,10 @@
         fbq('track', 'PageView');
 
         // Purchase Event Firing
+        const urlParamsForPixel = new URLSearchParams(window.location.search);
+        const amountForPixel = parseFloat(urlParamsForPixel.get('amount')) || 2000.00;
         fbq('track', 'Purchase', {
-            value: 1200.00,
+            value: amountForPixel,
             currency: 'INR'
         });
     </script>

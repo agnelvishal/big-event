@@ -37,7 +37,7 @@ Both `index.html` and `thank-you.html` include pre-configured tracking scripts i
 - **Google Analytics 4 (GA4)**: Tag ID `G-NKW7EP680V`.
 - **Facebook Pixel**: ID `2186770388231189`. 
   - Triggers a `PageView` event on the landing page.
-  - Triggers a `Purchase` event (valued at ₹1200.00 INR) on `thank-you.html`.
+  - Triggers a `Purchase` event (valued at ₹2000.00 INR by default, or dynamic based on the URL parameter) on `thank-you.html`.
 
 ---
 
